@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Создание товара</h1>
+<form action="" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <p style="margin-bottom: .5rem;">
+        {{ form.name.label }}
+        {{ form.name(class="form-control") }}
+    </p>
+    <p>
+        {{ form.category.label }}
+        {{ form.category(class="form-control", type="text") }}
+    </p>
+    <p>
+        {{ form.description.label }}
+        {{ form.description(class="form-control", type="text") }}
+    </p>
+    <p style="margin-bottom: .5rem;">
+        {{ form.price.label }}
+        {{ form.price(class="form-control", type="number", min="0", step="1") }}
+    </p>
+        <p style="margin-bottom: .5rem;">
+        {{ form.count.label }}
+        {{ form.count(class="form-control", type="number", min="0", step="1") }}
+    </p>
+    <p>
+        {{ form.image(type="file", accept=".png, .jpg, .jpeg" ) }}
+    </p>
+    <p> {{ form.submit(type="submit", class="btn btn-outline-dark mt-3") }}</p>
+    <h5 style="color: rgb(0, 0, 0); margin-top: 0;">{{message}}</h5>
+</form>
+{% endblock %}

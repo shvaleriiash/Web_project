@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    {% for product in products %}
+    {% if product[4] == 0 %}
+    {% else %}
+    <div class="col-sm-6">
+        <div class="card" style="width: 12rem;">
+            <img src="/static/img/{{ product[2] }}.jpg" class="card-img-top img-thumbnail" width="876"
+                 height="1200"
+                 style="padding-left: 1.75rem; padding-right: 1.75rem; padding-top: .75rem;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ product[0] }}</h5>
+                <p class="card-text">{{ product[1] }} р.</p>
+                <a href="/{{ cat }}/{{ product[3] }}" class="stretched-link"></a>
+                <div class="d-grip col mx-auto">
+                    <form method="post" action="">
+                        <button type="submit" class="btn btn-outline-dark
+                        center-block col mx-auto stretched-link" name="add" value="{{ product[3] }}">
+                            Добавить в корзину
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<font color="#FF1493" face="Segoe Script">
+<h1 style="text-align: center;">Магазин украшений ручной работы</h1>
+</font>
+{% for category in categories %}
+<i>
+<h3 class="m-5" style="text-align: center;">
+<a href=/{{category}}>{{ category }}</a>
+</h3>
+</i>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Оплата</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.card.label }}
+        {{ form.card(class="form-control", type="text") }}
+    </p>
+    <p>
+        {{ form.address.label }}
+        {{ form.address(class="form-control", type="text") }}
+    </p>
+    <p>Сумма к оплате: {{ summ }} р.</p>
+    <p style="margin-bottom: .25rem;">{{ form.submit(type="submit", class="btn btn-outline-dark") }}</p>
+</form>
+{% endblock %}

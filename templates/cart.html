@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_anonymous %}
+<h3 style="text-align: center;">Чтобы использовать корзину, нужно пройти регистрацию или войти.</h3>
+<h5><a></a></h5>
+<h5><a></a></h5>
+{% elif not current_user.is_anonymous %}
+<div style="text-align: center;">
+    {% for product in products %}
+    <p style="margin-bottom: 0px;">{{ product[0].Name }} {{ product[0].Price }} р.</p>
+    <div class="mb-2">
+        <a href="/delete/{{ product[1] }}">Удалить товар</a>
+    </div>
+    {% endfor %}
+    <p>Сумма: {{ summ }} р.</p>
+    <div class="m-2">
+        <a href="/payment" class="btn btn-outline-dark mt-5
+        mb-2">Оплатить</a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

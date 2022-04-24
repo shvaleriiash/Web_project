@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p style="text-align: center;">
+    <img style="width: 600px;" src="/static/img/{{ product[3] }}.jpg">
+</p>
+<h4 style="text-align: center;"> {{ product[1] }} Р.</h4>
+<div class="d-grip col mx-auto">
+    <form method="post" action="">
+        {% if product[4] == 0 %}
+        <h1 style="text-align: center;">Товар закончился</h1>
+        {% else %}
+        <button type="submit" class="btn btn-outline-dark
+                        center-block col mx-auto stretched-link" name="add" value="add">
+            Добавить в корзину
+        </button>
+        {% endif %}
+        {% if current_user.Status == 1 %}
+        <div class="m-2" style="text-align: center;">
+            <button type="submit" class="btn btn-outline-danger
+                        center-block col mx-auto stretched-link" name="delete" value="delete">
+                Удалить товар
+            </button>
+        </div>
+        {% endif %}
+    </form>
+</div>
+<h3 class="mt-5">{{ product[0] }}</h3>
+<p>{{ product[2] }}</p>
+{% endblock %}

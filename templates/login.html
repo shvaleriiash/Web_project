@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Авторизация</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.email.label }}
+        {{ form.email(class="form-control", type="email") }}
+    </p>
+    <p style="margin-bottom: .5rem;">
+        {{ form.password.label }}
+        {{ form.password(class="form-control", type="password") }}
+    </p>
+    <p style="margin-bottom: .25rem;">{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+    <p>{{ form.submit(type="submit", class="btn btn-outline-dark") }}</p>
+    <h5 style="color: rgb(255, 0, 0); margin-top: 0;">{{ message }}</h5>
+    <p class="mt-5">Ещё не зарегистрированы? <a href="/registration">Регистрация</a></p>
+</form>
+{% endblock %}
